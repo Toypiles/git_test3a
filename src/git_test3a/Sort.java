@@ -12,7 +12,16 @@ public class Sort {
     }
     
     static int partition(int[] a, int start, int end) {
-        
+        int pivot = a[end];
+        int i = start - 1;
+        for (int j = start; j < end; j++) {
+            if (a[j] <= pivot) {
+                i++;
+                swap(a, i, j);
+            }
+        }
+        swap(a, i + 1, end);
+        return i + 1;
     }
     
     static void quickSort(int[] a, int start, int end) {
